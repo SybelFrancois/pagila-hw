@@ -2,9 +2,11 @@
  * Find the actor_id of every actor whose first name starts with the indicated string.
  * Order the results from low to hi.
  */
-CREATE OR REPLACE FUNCTION get_actor_ids(text) RETURNS TABLE(actor_id INTEGER) AS
+CREATE OR REPLACE FUNCTION get_actor_ids(TEXT) RETURNS TABLE(actor_id INTEGER) AS
 $$
--- FIXME: implementation goes here
+select actor_id from actor
+where first_name ilike ($1 || '%')
+order by actor_id asc;
 $$
 LANGUAGE SQL
 IMMUTABLE
