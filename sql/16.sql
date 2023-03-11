@@ -5,5 +5,8 @@
  */
 
 
- select film.title, SUM(payment.amount) as profit from film join inventory using (film_id) join rental using (inventory_id) join payment using (rental_id) group by film.title
-order by profit desc;
+ select film.title, SUM(payment.amount) as profit
+ from film join inventory using (film_id) 
+ join rental using (inventory_id) join payment using (rental_id)
+ group by film.title
+ order by profit desc;
