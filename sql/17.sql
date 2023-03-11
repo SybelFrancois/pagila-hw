@@ -5,4 +5,11 @@
  * Order by country alphabetically.
  */
 
-select country.country, sum(payment.amount) as "profit" from country join city using (country_id) join address using (city_id) join customer using (address_id) join rental using (customer_id) join payment on payment.rental_id = rental.rental_id group by country.country order by country.country asc;
+select country.country, sum(payment.amount) as "profit" from country
+join city using (country_id) 
+join address using (city_id) 
+join customer using (address_id) 
+join rental using (customer_id) 
+join payment on payment.rental_id = rental.rental_id 
+group by country.country 
+order by country.country asc;
